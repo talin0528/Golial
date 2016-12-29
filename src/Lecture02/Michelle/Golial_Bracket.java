@@ -1,4 +1,4 @@
-package golith_2;
+package Lecture02.Michelle; //test
 
 import java.util.*;
 
