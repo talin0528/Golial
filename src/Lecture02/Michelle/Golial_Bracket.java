@@ -1,5 +1,4 @@
-package Lecture02.Michelle; //test
-
+package Lecture02.Michelle; 
 import java.util.*;
 
 public class Golial_Bracket {
