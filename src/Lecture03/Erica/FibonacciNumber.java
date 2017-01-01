@@ -6,27 +6,32 @@ package Lecture03.Erica;
 
 import java.util.Scanner;
 public class FibonacciNumber {
-	public static void fibonacci(int number, int[] zero, int[] one) {
-		if(number == 1)
+	public static int countZeroAndOne(int [] zero, int [] one, int [] d, int number)
+	{
+		if(number == 0)
 		{
-			one[number]++;
+			zero[number] = 1;
+			d[number] = 0;
+			return 0;
 		}
-		else if(number == 0)
+		else if(number == 1)
 		{
-			zero[number]++;
+			one[number] = 1;
+			d[number] = 1;
+			return 1;
 		}
 		else
 		{
-			if(zero[number] == 0 && one[number] == 0)
-			{
-				fibonacci(number-1, zero, one);
-				fibonacci(number-2, zero, one);
-				zero[number] += zero[number-1];
-				one[number] += one[number-1];
-			}	
+			if(d[number] > 0)
+				return d[number];
+			
+			d[number] = countZeroAndOne(zero, one, d, number-1) + countZeroAndOne(zero, one, d, number-2);
+			zero[number] = zero[number - 1] + zero[number - 2];
+			one[number] = one[number - 1] + one[number - 2];
+			
+			return d[number];
 		}
 	}
-	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int T = in.nextInt();
@@ -35,8 +40,10 @@ public class FibonacciNumber {
 			int number = in.nextInt();
 			int [] zero = new int[number+1];
 			int [] one = new int[number+1];
-			fibonacci(number, zero, one);
+			int [] d = new int[number+1];
+			countZeroAndOne(zero, one, d, number);
 			System.out.println(zero[number] + " " + one[number]);
 		}
 	}
+	
 }
