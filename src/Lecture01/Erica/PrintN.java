@@ -1,5 +1,6 @@
+package Lecture01.Erica;
 /*
- * 문제 경로
+ * Problem URL
  * https://www.acmicpc.net/problem/2741
  */
 

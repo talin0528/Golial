@@ -1,3 +1,4 @@
+package Lecture01.Erica;
 /*
  * Problem URL
  * https://www.acmicpc.net/problem/10992
