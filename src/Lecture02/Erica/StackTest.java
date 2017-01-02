@@ -1,4 +1,4 @@
-package Lecture02;
+package Lecture02.Erica;
 /*
  * Problem URL
  * https://www.acmicpc.net/problem/10828

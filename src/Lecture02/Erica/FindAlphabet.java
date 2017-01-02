@@ -1,4 +1,4 @@
-package Lecture02;
+package Lecture02.Erica;
 
 import java.util.Scanner;
 
