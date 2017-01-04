@@ -1,13 +1,13 @@
 package Lecture03.Erica;
 /*
  * Problem URL
- * https://www.acmicpc.net/problem/2193
+ * https://www.acmicpc.net/problem/11052
  */
 
 import java.util.Scanner;
 public class SellBungeoppang {
 	public static int maxProfit(int [] d, int [] p, int number) {
-		if(number == 1)
+		if(number <= 1)
 		{
 			d[number] = p[number];
 			return d[number];
@@ -16,12 +16,9 @@ public class SellBungeoppang {
 			return d[number];
 		else
 		{
-			int maximum = 0;
-			for(int i = 1; i < number; i++)
-				maximum = Math.max(maximum, maxProfit(d, p, number - i) + p[i]);
-			maximum = Math.max(maximum, p[number]);
-			
-			d[number] = maximum;
+			for(int i = 1; i <= number; i++)
+				d[number] = Math.max(d[number], maxProfit(d, p, number - i) + p[i]);
+
 			return d[number];			
 		}		
 	}
@@ -34,7 +31,7 @@ public class SellBungeoppang {
 		for(int i = 1; i <= number; i++)
 			p[i] = in.nextInt();
 		
-		maxProfit(d, p, number);
-		System.out.println(d[number]);
+		System.out.println(maxProfit(d, p, number));
+		
 	}
 }
