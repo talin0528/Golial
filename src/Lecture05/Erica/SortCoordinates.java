@@ -13,17 +13,17 @@ public class SortCoordinates {
 		Scanner in = new Scanner(System.in);
 
 		int number = in.nextInt();
-		ArrayList<Pair<Integer, Integer>> coordinate = new ArrayList<Pair<Integer, Integer>>();
+		ArrayList<Pair> coordinate = new ArrayList<Pair>();
 		for(int i = 0; i < number; i++)
 		{
 			int x = in.nextInt();
 			int y = in.nextInt();
-			coordinate.add(new Pair<Integer, Integer>(x, y));
+			coordinate.add(new Pair(x, y));
 		}
 		
-		Collections.sort(coordinate, new Comparator<Pair<Integer, Integer>>() {
+		Collections.sort(coordinate, new Comparator<Pair>() {
 		    @Override
-		    public int compare(final Pair<Integer, Integer> o1, final Pair<Integer, Integer> o2) {
+		    public int compare(final Pair o1, final Pair o2) {
 		        if(o1.getX() > o2.getX())
 		        	return 1;
 		        else if(o1.getX() == o2.getX() && o1.getY() > o2.getY())
@@ -40,18 +40,15 @@ public class SortCoordinates {
 	}
 }
 
-class Pair<X, Y> {
-	private X x;
-	private Y y;
+class Pair {
+	private int x;
+	private int y;
 	
-	public Pair(X x, Y y) {
+	public Pair(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-
-	public void setX(X x) { this.x = x; }
-	public void setY(Y y) { this.y = y; }
 	
-	public X getX() { return x; }
-	public Y getY() { return y; }
+	public int getX() { return x; }
+	public int getY() { return y; }
 }
